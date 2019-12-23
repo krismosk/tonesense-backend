@@ -211,6 +211,7 @@ pytest-openfiles=0.4.0=py_0
 pytest-remotedata=0.3.2=py37_0
 python=3.7.4=h359304d_1
 python-dateutil=2.8.1=py_0
+python-dotenv=0.10.3=pypi_0
 python-jsonrpc-server=0.3.2=py_0
 python-language-server=0.31.2=py37_0
 python-libarchive-c=2.8=py37_13
