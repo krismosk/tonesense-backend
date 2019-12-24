@@ -6,6 +6,7 @@ alabaster=0.7.12=py37_0
 anaconda=custom=py37_1
 anaconda-client=1.7.2=py37_0
 anaconda-project=0.8.4=py_0
+aniso8601=8.0.0=pypi_0
 applaunchservices=0.2.1=py_0
 appnope=0.1.0=py37_0
 appscript=1.1.0=py37h1de35cc_0
@@ -60,6 +61,7 @@ fastcache=1.1.0=py37h1de35cc_0
 filelock=3.0.12=py_0
 flake8=3.7.9=py37_0
 flask=1.1.1=py_0
+flask-restful=0.3.7=pypi_0
 freetype=2.9.1=hb4e5f40_0
 fsspec=0.6.2=py_0
 future=0.18.2=py37_0
