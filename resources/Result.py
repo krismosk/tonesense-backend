@@ -2,19 +2,19 @@ from flask_restful import Resource
 
 results = [
   {
-    "sentence_0": {
+    "sentence": {
       "score": -0.6,
       "magnitude": 3.3,
     }
   },
   {
-    "sentence_1": {
+    "sentence": {
       "score": 0,
       "magnitude": 4.7,
     }
   },
   {
-    "sentence_2": {
+    "sentence": {
       "score": -0.1,
       "magnitude": 1.8,
     }
