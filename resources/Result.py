@@ -9,17 +9,22 @@ from google.cloud.language import types
 client = language.LanguageServiceClient()
 
 # the text to analyze
-text = u'Hello, world!'
+text = u'I love you, Hilter!'
 document = types.Document(
   content=text,
+  language='en',
   type=enums.Document.Type.PLAIN_TEXT)
 
 # detect the sentiment of the text
 sentiment = client.analyze_sentiment(document=document).document_sentiment
+response = client.analyze_entity_sentiment(document=document, encoding_type='UTF32')
+
+entities = response.entities
 
 # print results
 print('Text: {}'.format(text))
 print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
+print('Entity Sentiment: {}, {}'.format(entities[0].sentiment.score, entities[0].sentiment.magnitude))
 
 results = [
   {
