@@ -23,14 +23,14 @@ class Result(Resource):
     response = jsonify(result)
     return response
 
-  def get_sentiment(self, boop):
+  def get_sentiment(self, text):
     # instantiates a client
     client = language.LanguageServiceClient()
     
     # the text to analyze
-    text = u'The Mona Lisa is a great work of art.'
+    analyzed_text = text
     document = types.Document(
-      content=text,
+      content=analyzed_text,
       language='en',
       type=enums.Document.Type.PLAIN_TEXT)
 
@@ -53,7 +53,6 @@ class Result(Resource):
     print('result printed:')
     print(result)
 
-    # return json.dumps(result)
     response = jsonify(result)
     print('response printed:')
     print(response)
