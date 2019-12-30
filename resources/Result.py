@@ -1,52 +1,60 @@
-from flask_restful import Resource
+from flask_restful import Resource, reqparse
+from flask import jsonify
 
 # import the google cloud client library
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-  
-# instantiates a client
-client = language.LanguageServiceClient()
-
-# the text to analyze
-text = u'I love you, Hilter!'
-document = types.Document(
-  content=text,
-  language='en',
-  type=enums.Document.Type.PLAIN_TEXT)
-
-# detect the sentiment of the text
-sentiment = client.analyze_sentiment(document=document).document_sentiment
-response = client.analyze_entity_sentiment(document=document, encoding_type='UTF32')
-
-entities = response.entities
-
-# print results
-print('Text: {}'.format(text))
-print('Sentiment: {}, {}'.format(sentiment.score, sentiment.magnitude))
-print('Entity Sentiment: {}, {}'.format(entities[0].sentiment.score, entities[0].sentiment.magnitude))
-
-results = [
-  {
-    "sentence": {
-      "score": -0.6,
-      "magnitude": 3.3,
-    }
-  },
-  {
-    "sentence": {
-      "score": 0,
-      "magnitude": 4.7,
-    }
-  },
-  {
-    "sentence": {
-      "score": -0.1,
-      "magnitude": 1.8,
-    }
-  },
-]
 
 class Result(Resource):
-  def get(self):
-    return results
+  def post(self, text):
+    text = text
+    testing = False
+    if testing:
+      return self.get_mock_sentiment(text)
+    else:
+      return self.get_sentiment(text)
+    
+  def get_mock_sentiment(self, text):
+    result = {}
+    result['text'] = text
+    result['score'] = 0.8
+    result['magnitude'] = 0.9
+    response = jsonify(result)
+    return response
+
+  def get_sentiment(self, boop):
+    # instantiates a client
+    client = language.LanguageServiceClient()
+    
+    # the text to analyze
+    text = u'The Mona Lisa is a great work of art.'
+    document = types.Document(
+      content=text,
+      language='en',
+      type=enums.Document.Type.PLAIN_TEXT)
+
+    # detect the sentiment of the text
+    sentiment = client.analyze_sentiment(document=document).document_sentiment
+    response = client.analyze_entity_sentiment(document=document, encoding_type='UTF32')
+
+    entities = response.entities
+
+    # print('Text: {}'.format(text))
+    # print('Entity Sentiment: {}, {}'.format(entities[0].sentiment.score, entities[0].sentiment.magnitude))
+    print('moskalets')
+    print(type(text))
+    result = {}
+    result['text'] = text
+    result['score'] = sentiment.score
+    result['magnitude'] = sentiment.magnitude
+    # comment out this line to avoid TypeError: Object of type RepeatedCompositeContainer is not JSON serializable
+    # result['entities'] = entities 
+    print('result printed:')
+    print(result)
+
+    # return json.dumps(result)
+    response = jsonify(result)
+    print('response printed:')
+    print(response)
+    return response
