@@ -11,7 +11,7 @@ from google.protobuf.json_format import MessageToDict
 class Result(Resource):
   def post(self, text):
     text = text
-    testing = False
+    testing = True
     if testing:
       return self.get_mock_sentiment(text)
     else:
@@ -22,6 +22,18 @@ class Result(Resource):
     result['text'] = text
     result['score'] = 0.8
     result['magnitude'] = 0.9
+    result['entities'] = [
+      {
+        'name': 'Metallica',
+        'type': 7,
+        'salience': 0.64456,
+      },
+      {
+        'name': 'The Rolling Stones',
+        'type': 7,
+        'salience': 0.44456,
+      }
+    ]
     response = jsonify(result)
     return response
 
