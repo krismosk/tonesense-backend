@@ -12,5 +12,4 @@ api.add_resource(Result, '/api/v1/results/<string:text>')
 # Setting debug to True enables debug output. This line should be
 # removed before deploying a production app.
 if __name__ == '__main__':
-    application.debug = True
-    application.run()
+    application.run(debug=True)
