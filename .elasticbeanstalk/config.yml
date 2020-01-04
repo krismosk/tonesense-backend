@@ -1,11 +1,11 @@
 branch-defaults:
-  setup-api:
-    environment: flask-env
+  master:
+    environment: backend-capstone2-dev
     group_suffix: null
 global:
-  application_name: backend-capstone
+  application_name: backend-capstone2
   branch: null
-  default_ec2_keyname: null
+  default_ec2_keyname: aws-eb
   default_platform: Python 3.6
   default_region: us-west-2
   include_git_submodules: true
