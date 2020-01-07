@@ -22,7 +22,6 @@ load_dotenv(verbose=True)
 logging.info(os.environ)
 logging.info(os.getcwd())
 
-logging.warning("foobar")
 logging.warning(os.getenv('GOOGLE_APPLICATION_CREDENTIALS'))
 
 application = api = Flask(__name__)
@@ -30,7 +29,6 @@ application = api = Flask(__name__)
 api = Api(application)
 
 api.add_resource(Result, '/api/v1/results/<string:text>')
-# api.add_resource(Home, '/api/v1')
 api.add_resource(Home, '/')
 
 if __name__ == '__main__':
