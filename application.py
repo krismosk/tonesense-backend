@@ -33,13 +33,5 @@ api.add_resource(Result, '/api/v1/results/<string:text>')
 # api.add_resource(Home, '/api/v1')
 api.add_resource(Home, '/')
 
-# logging.warning("foobar test")
-# client = language.LanguageServiceClient()
-# logging.warning("test2")
-# client = language.LanguageServiceClient()
-# logging.warning("test3")
-# client = language.LanguageServiceClient()
-# logging.warning("test4")
-
 if __name__ == '__main__':
     application.run(debug=True)

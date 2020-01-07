@@ -9,8 +9,6 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 class Result(Resource):
-  client = None
-  
   def post(self, text):
     text = text
     testing = False
@@ -22,20 +20,20 @@ class Result(Resource):
   def get_mock_sentiment(self, text):
     result = {}
     result['text'] = text
-    result['score'] = 0.8
+    result['score'] = -1.0
     result['magnitude'] = 0.9
-    result['entities'] = [
-      {
-        'name': 'Metallica',
-        'type': 7,
-        'salience': 0.64456,
-      },
-      {
-        'name': 'The Rolling Stones',
-        'type': 7,
-        'salience': 0.44456,
-      }
-    ]
+    # result['entities'] = [
+    #   {
+    #     'name': 'Metallica',
+    #     'type': 7,
+    #     'salience': 0.64456,
+    #   },
+    #   {
+    #     'name': 'The Rolling Stones',
+    #     'type': 7,
+    #     'salience': 0.44456,
+    #   }
+    # ]
     response = jsonify(result)
     return response
 
@@ -44,12 +42,7 @@ class Result(Resource):
     try:
       logging.info("get sentiment")
       # instantiates a client
-      client = Result.client
-      if client is None:
-        logging.info("client created")
-        Result.client = language.LanguageServiceClient()
-        client = Result.client
-      
+      client = language.LanguageServiceClient()
       # the text to analyze
       analyzed_text = text
       document = types.Document(
@@ -59,10 +52,10 @@ class Result(Resource):
       logging.info("document created: {}".format(document))
 
       # detect the sentiment of the text
-      sentiment = client.analyze_sentiment(document=document, retry=None, timeout=10.0).document_sentiment
+      sentiment = client.analyze_sentiment(document=document).document_sentiment
       logging.info("analyzed sentiment")
 
-      entity_response = client.analyze_entity_sentiment(document=document, retry=None, timeout=10.0, encoding_type='UTF32')
+      entity_response = client.analyze_entity_sentiment(document=document, encoding_type='UTF32')
       logging.info("sentiment done")
 
       print('moskalets')
