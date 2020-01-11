@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 import logging
 
 # import the google cloud client library
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+# from google.cloud import language
+# from google.cloud.language import enums
+# from google.cloud.language import types
 
 logging.basicConfig(filename='/tmp/tmp.log',level=logging.DEBUG)
 logging.getLogger().addHandler(logging.StreamHandler())
