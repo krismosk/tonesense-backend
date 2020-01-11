@@ -13,7 +13,6 @@ Jinja2==2.10.3
 jmespath==0.9.4
 joblib==0.14.1
 MarkupSafe==1.1.1
-mkl-service==2.3.0
 nltk==3.3
 numpy==1.17.4
 olefile==0.46
