@@ -3,7 +3,7 @@ from flask import jsonify
 import json
 import logging
 import pickle
-import re, string, random
+import re, string
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import twitter_samples, stopwords
 from nltk.tag import pos_tag
