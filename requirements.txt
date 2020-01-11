@@ -1,6 +1,7 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: osx-64
+aniso8601=8.0.0=pypi_0
 blas=1.0=mkl
 boto3=1.10.47=pypi_0
 botocore=1.13.47=pypi_0
@@ -10,9 +11,13 @@ cffi=1.13.2=py37hb5b8e2f_0
 chardet=3.0.4=pypi_0
 click=7.0=pypi_0
 docutils=0.15.2=pypi_0
+flask=1.1.1=pypi_0
+flask-restful=0.3.7=pypi_0
 freetype=2.9.1=hb4e5f40_0
 idna=2.8=pypi_0
 intel-openmp=2019.4=233
+itsdangerous=1.1.0=pypi_0
+jinja2=2.10.3=pypi_0
 jmespath=0.9.4=pypi_0
 joblib=0.14.1=pypi_0
 jpeg=9b=he5867d9_2
@@ -23,12 +28,14 @@ libffi=3.2.1=h475c297_4
 libgfortran=3.0.1=h93005f0_2
 libpng=1.6.37=ha441bb4_0
 libtiff=4.1.0=hcb84e12_0
+markupsafe=1.1.1=pypi_0
 mkl=2019.4=233
 mkl-service=2.3.0=py37hfbe908c_0
 mkl_fft=1.0.15=py37h5e564d8_0
 mkl_random=1.1.0=py37ha771720_0
 ncurses=6.1=h0a44026_1
 ninja=1.9.0=py37h04f5b5a_0
+nltk=3.3=pypi_0
 numpy=1.17.4=py37h890c691_0
 numpy-base=1.17.4=py37h6575580_0
 olefile=0.46=py37_0
@@ -39,6 +46,7 @@ pycparser=2.19=py37_0
 python=3.7.4=h359304d_1
 python-dateutil=2.8.1=pypi_0
 pytorch=1.3.1=py3.7_0
+pytz=2019.3=pypi_0
 readline=7.0=h1de35cc_5
 regex=2020.1.7=pypi_0
 requests=2.22.0=pypi_0
@@ -53,6 +61,7 @@ torchvision=0.4.2=py37_cpu
 tqdm=4.41.1=pypi_0
 transformers=2.3.0=pypi_0
 urllib3=1.25.7=pypi_0
+werkzeug=0.16.0=pypi_0
 wheel=0.33.6=py37_0
 xz=5.2.4=h1de35cc_4
 zlib=1.2.11=h1de35cc_3
