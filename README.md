@@ -18,15 +18,15 @@ The API will return a numbered score and magnitude which represents the sentence
 5. Install Python 3.7.4.
 6. Install dependencies using pip `pip install -r requirements.txt` or using Conda `conda install --file requirements.txt`
 7. Create a Google Cloud Platform account.
-8. Follow installation instructions to get started with [Cloud Natural Language API](https://cloud.google.com/natural-language/docs/quickstarts).
+8. Follow installation instructions to get started with [Cloud Natural Language API.](https://cloud.google.com/natural-language/docs/quickstarts)
 9. Install and initialize [Cloud SDK.](https://cloud.google.com/sdk/docs/)
 10. Run server locally `python application.py`
-11. To interact with model and see its results in the Web App, follow the installation instructions in the corresponding repository. [Linked here.](https://github.com/krismosk/frontend-capstone-2)
+11. To interact with model and see its results in the Web App, follow the installation instructions in the [corresponding repository.](https://github.com/krismosk/frontend-capstone-2)
 
-Deployed with AWS Elastic Beanstalk. [View here.](http://backend-capstone2-dev.us-west-2.elasticbeanstalk.com/)
+Deployed with [AWS Elastic Beanstalk.](http://backend-capstone2-dev.us-west-2.elasticbeanstalk.com/)
 
 ## Version 2
-This version was built using a Naive Bayes Classifier model and fine tuned with the Natural Language Toolkit (NLTK). The model was fine tuned in a Google Colab notebook. [Linked here.](https://colab.research.google.com/drive/1QttwHHLlbxLzFAl1jPFqZjAZ7xEnO-K6)
+This version was built using a Naive Bayes Classifier model and fine tuned with the Natural Language Toolkit (NLTK). The model was fine tuned in [Google Colab.](https://colab.research.google.com/drive/1QttwHHLlbxLzFAl1jPFqZjAZ7xEnO-K6)
 
 The ML model implements binary classification, therefore the results returned are either "positive" or "negative", with the score 1.0 or -1.0, respectively.
 
@@ -38,9 +38,9 @@ The ML model implements binary classification, therefore the results returned ar
 5. Install Python 3.7.4.
 6. Install dependencies using pip `pip install -r requirements.txt` or using Conda `conda install --file requirements.txt`
 7. Run server locally `python application.py`
-8. To interact with model and see its results in the Web App, follow the installation instructions in the corresponding repository. [Linked here.](https://github.com/krismosk/frontend-capstone-2)
+8. To interact with model and see its results in the Web App, follow the installation instructions in the [corresponding repository.](https://github.com/krismosk/frontend-capstone-2)
 
-Deployed with [INSERT NAME HERE]. View here.
+Deployed with [INSERT NAME HERE].
 
 ## API 
 - Route: '/api/v1/results/{string:text}'
