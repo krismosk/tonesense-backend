@@ -12,7 +12,7 @@ import logging
 # from google.cloud.language import types
 
 # logging.basicConfig(filename='/tmp/tmp.log',level=logging.DEBUG)
-logging.getLogger().addHandler(logging.StreamHandler())
+# logging.getLogger().addHandler(logging.StreamHandler())
 
 # load dotenv in the base root
 # APP_ROOT = os.path.join(os.path.dirname(__file__), '..') 
@@ -28,7 +28,7 @@ application = api = Flask(__name__)
 
 api = Api(application)
 
-api.add_resource(Result, '/api/v1/results/<string:text>')
+# api.add_resource(Result, '/api/v1/results/<string:text>')
 api.add_resource(Home, '/')
 
 if __name__ == '__main__':
