@@ -24,18 +24,6 @@ class Result(Resource):
     result['text'] = text
     result['score'] = 0.8
     result['magnitude'] = 0.9
-    result['entities'] = [
-      {
-        'name': 'Metallica',
-        'type': 7,
-        'salience': 0.64456,
-      },
-      {
-        'name': 'The Rolling Stones',
-        'type': 7,
-        'salience': 0.44456,
-      }
-    ]
     response = jsonify(result)
     return response
 
@@ -64,8 +52,7 @@ class Result(Resource):
 
       entity_response = client.analyze_entity_sentiment(document=document, retry=None, timeout=10.0, encoding_type='UTF32')
       logging.info("sentiment done")
-
-      print('moskalets')
+      
       result['text'] = text
       result['score'] = sentiment.score
       result['magnitude'] = sentiment.magnitude
