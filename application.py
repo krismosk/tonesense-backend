@@ -27,7 +27,7 @@ application = api = Flask(__name__)
 api = Api(application)
 
 api.add_resource(Result, '/api/v1/results/<string:text>')
-api.add_resource(NaiveBayes, '/api/v1/results/<string:text>')
+api.add_resource(NaiveBayes, '/api/v2/results/<string:text>')
 api.add_resource(Home, '/')
 
 if __name__ == '__main__':
