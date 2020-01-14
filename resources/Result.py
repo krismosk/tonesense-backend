@@ -12,7 +12,7 @@ class Result(Resource):
   
   def post(self, text):
     text = text
-    testing = True
+    testing = False
     if testing:
       return self.get_mock_sentiment(text)
     else:
