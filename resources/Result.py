@@ -3,7 +3,6 @@ from flask import jsonify
 import json
 import logging
 
-# import the google cloud client library
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
@@ -13,7 +12,7 @@ class Result(Resource):
   
   def post(self, text):
     text = text
-    testing = False
+    testing = True
     if testing:
       return self.get_mock_sentiment(text)
     else:
@@ -65,8 +64,6 @@ class Result(Resource):
       e = sys.exc_info()[0]
       logging.error(e)
     finally:
-      print('result printed:')
-      print(result)
       return jsonify(result)
     
 

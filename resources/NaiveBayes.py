@@ -66,5 +66,4 @@ class NaiveBayes(Resource):
         "text": f"{text}",
         "score": "-1.0"
         }
-    print(result)
     return jsonify(response)
