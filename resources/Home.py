@@ -3,6 +3,6 @@ from flask import jsonify
 
 class Home(Resource):
   def get(self):
-    message = {"message": "success"}
+    message = {"test": "success"}
     response = jsonify(message)
     return response

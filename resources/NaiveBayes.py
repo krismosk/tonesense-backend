@@ -4,15 +4,14 @@ import json
 import logging
 import pickle
 import re, string
+import nltk
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import twitter_samples, stopwords
 from nltk.tag import pos_tag
 from nltk.tokenize import word_tokenize
 from nltk import FreqDist, classify, NaiveBayesClassifier
 
-file = open('classifier.pickle', 'rb')
-classifier = pickle.load(file)
-file.close()
+nltk.data.path.append('./nltk_data/')
 
 def remove_noise(tweet_tokens, stop_words = ()):
   cleaned_tokens = []
@@ -54,16 +53,28 @@ class NaiveBayes(Resource):
     return response
 
   def get_ml_sentiment(self, text):
-    custom_tokens = remove_noise(word_tokenize(text))
-    result = classifier.classify(dict([token, True] for token in custom_tokens))
-    if result == "Positive":
-      response = {
-        "text": f"{text}",
-        "score": "1.0"
-      }
-    elif result == "Negative":
-      response = {
-        "text": f"{text}",
-        "score": "-1.0"
+    
+    logging.error("testing seeing logs")
+    try:
+      test = word_tokenize(text)
+      custom_tokens = remove_noise(test)
+      with open('classifier.pickle', 'rb') as f:
+        classifier = pickle.load(f)
+
+      result = classifier.classify(dict([token, True] for token in custom_tokens))
+      if result == "Positive":
+        response = {
+          "text": f"{text}",
+          "score": "1.0"
         }
+      elif result == "Negative":
+        response = {
+          "text": f"{text}",
+          "score": "-1.0"
+          }
+    except:
+      e = sys.exc_info()[0]
+      message = {"test": str(e)}
+      response = jsonify(message)
+      return response
     return jsonify(response)
