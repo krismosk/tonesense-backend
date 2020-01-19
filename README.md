@@ -35,3 +35,7 @@ The ML model implements binary classification, therefore the results returned ar
   - Parameter: String, spaces allowed
 - Naive Bayes Classifier Route: '/api/v2/results/{string:text}'
   - Parameter: String, spaces allowed
+  
+## Demo
+[![ToneSense Demo](http://img.youtube.com/vi/cTv0F3Z7DK4/0.jpg)](http://www.youtube.com/watch?v=cTv0F3Z7DK4 "ToneSense Demo")
+
