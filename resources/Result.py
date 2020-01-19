@@ -65,7 +65,3 @@ class Result(Resource):
       logging.error(e)
     finally:
       return jsonify(result)
-    
-
-
-

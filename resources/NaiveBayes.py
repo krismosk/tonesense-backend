@@ -53,28 +53,19 @@ class NaiveBayes(Resource):
     return response
 
   def get_ml_sentiment(self, text):
-    
-    logging.error("testing seeing logs")
-    try:
-      test = word_tokenize(text)
-      custom_tokens = remove_noise(test)
-      with open('classifier.pickle', 'rb') as f:
-        classifier = pickle.load(f)
+    custom_tokens = remove_noise(word_tokenize(text))
+    with open('classifier.pickle', 'rb') as f:
+      classifier = pickle.load(f)
 
-      result = classifier.classify(dict([token, True] for token in custom_tokens))
-      if result == "Positive":
-        response = {
-          "text": f"{text}",
-          "score": "1.0"
+    result = classifier.classify(dict([token, True] for token in custom_tokens))
+    if result == "Positive":
+      response = {
+        "text": f"{text}",
+        "score": "1.0"
+      }
+    elif result == "Negative":
+      response = {
+        "text": f"{text}",
+        "score": "-1.0"
         }
-      elif result == "Negative":
-        response = {
-          "text": f"{text}",
-          "score": "-1.0"
-          }
-    except:
-      e = sys.exc_info()[0]
-      message = {"test": str(e)}
-      response = jsonify(message)
-      return response
     return jsonify(response)
